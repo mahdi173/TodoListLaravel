@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('todo_lists', function (Blueprint $table) {
             $table->id();
             $table->string('content');
-            $table->unsignedBigInteger('priorities');
-            $table->foreign('priority_id')->references('id')->on('priorities')->onDelete('restrict')->onUpdate('restrict');
             $table->timestamps();
         });
     }
