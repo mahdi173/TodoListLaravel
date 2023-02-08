@@ -16,11 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/TodoList', [TodoListController::class, 'index'])->name('TodoList')->middleware(['auth:sanctum','verified']);  
-Route::post('/AddTodoList', [TodoListController::class, 'store'])->name('AddTodoList')->middleware(['auth:sanctum','verified']);
-Route::get('/TodoDelete/{id}', [TodoListController::class, 'destroy'])->name('destroy')->middleware(['auth:sanctum','verified']);
-Route::post('/TodoUpdate/{id}', [TodoListController::class, 'update'])->name('update')->middleware(['auth:sanctum','verified']);
-Route::get('/edit/{id}', [TodoListController::class, 'edit'])->name('edit')->middleware(['auth:sanctum','verified']);
+Route::middleware('auth:sanctum')->group(function () {
+   
+    Route::get('/TodoList', [TodoListController::class, 'index'])->name('TodoList');  
+    Route::post('/AddTodoList', [TodoListController::class, 'store'])->name('AddTodoList');
+    Route::get('/TodoDelete/{id}', [TodoListController::class, 'destroy'])->name('destroy');
+    Route::post('/TodoUpdate/{id}', [TodoListController::class, 'update'])->name('update');
+    Route::get('/edit/{id}', [TodoListController::class, 'edit'])->name('edit');
+    
+});
+
 
 Auth::routes();
 

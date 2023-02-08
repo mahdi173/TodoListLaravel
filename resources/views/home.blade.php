@@ -14,11 +14,9 @@
                         </div>
                     @endif
 
-                    <button class="btn btn-primary">
-                        <a style="text-decoration: none; color: white; font-weight: bold;" href="{{route('TodoList')}}">
-                            TodoList
-                        </a>
-                    </button>
+                    <a class="btn btn-primary" style="text-decoration: none; color: white; font-weight: bold;" href="{{route('TodoList')}}">
+                        TodoList
+                    </a>
                 </div>
             </div>
         </div>
